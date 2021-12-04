@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config()
 const {
   API_KEY,
   AUTH_DOMAIN,
@@ -6,8 +6,8 @@ const {
   STORAGE_BUCKET,
   MESSAGING_SENDER_ID,
   APP_ID,
-  MEASUREMENT_Id,
-} = process.env;
+  MEASUREMENT_ID
+} = process.env
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -90,6 +90,6 @@ export default {
     STORAGE_BUCKET,
     MESSAGING_SENDER_ID,
     APP_ID,
-    MEASUREMENT_Id
+    MEASUREMENT_ID
   }
 }
