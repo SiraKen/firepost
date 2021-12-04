@@ -10,6 +10,17 @@ const {
 } = process.env
 
 export default {
+  // dotenv
+  env: {
+    API_KEY,
+    AUTH_DOMAIN,
+    PROJECT_ID,
+    STORAGE_BUCKET,
+    MESSAGING_SENDER_ID,
+    APP_ID,
+    MEASUREMENT_ID
+  },
+
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -56,16 +67,24 @@ export default {
       '@nuxtjs/firebase',
       {
         config: {
-          apiKey: '<apiKey>',
-          authDomain: '<authDomain>',
-          projectId: '<projectId>',
-          storageBucket: '<storageBucket>',
-          messagingSenderId: '<messagingSenderId>',
-          appId: '<appId>',
-          measurementId: '<measurementId>'
+          apiKey: API_KEY,
+          authDomain: AUTH_DOMAIN,
+          projectId: PROJECT_ID,
+          storageBucket: STORAGE_BUCKET,
+          messagingSenderId: MESSAGING_SENDER_ID,
+          appId: APP_ID,
+          measurementId: MEASUREMENT_ID
         },
         services: {
           auth: true
+          // firestore: true,
+          // functions: true,
+          // storage: true,
+          // database: true,
+          // messaging: true,
+          // performance: true,
+          // analytics: true,
+          // remoteConfig: true
         }
       }
     ]
@@ -80,16 +99,5 @@ export default {
 
   // Firebase
   firebase: {
-  },
-
-  // dotenv
-  env: {
-    API_KEY,
-    AUTH_DOMAIN,
-    PROJECT_ID,
-    STORAGE_BUCKET,
-    MESSAGING_SENDER_ID,
-    APP_ID,
-    MEASUREMENT_ID
   }
 }
