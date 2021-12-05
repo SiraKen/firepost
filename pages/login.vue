@@ -4,17 +4,24 @@
       <div class="flex flex-col mb-3">
         <div>
           <p>メールアドレス</p>
-          <input id="email" type="email" class="w-full border p-1" v-model="email" required>
+          <input id="email" v-model="email" type="email" class="w-full border p-1" required>
         </div>
         <div>
           <p>パスワード</p>
-          <input id="password" type="password" class="w-full border p-1" v-model="password" required>
+          <input id="password" v-model="password" type="password" class="w-full border p-1" required>
         </div>
       </div>
-      <button class="bg-green-500 text-white px-3 py-1 hover:bg-green-700" @click="login()">ログイン</button>
-      <button class="bg-green-500 text-white px-3 py-1 hover:bg-green-700" @click="logout()">ログアウト</button>
-      <button class="bg-green-500 text-white px-3 py-1 hover:bg-green-700" @click="create()">新規登録</button>
+      <button class="bg-green-500 text-white px-3 py-1 hover:bg-green-700" @click="login()">
+        ログイン
+      </button>
+      <button class="bg-green-500 text-white px-3 py-1 hover:bg-green-700" @click="logout()">
+        ログアウト
+      </button>
+      <button class="bg-green-500 text-white px-3 py-1 hover:bg-green-700" @click="create()">
+        新規登録
+      </button>
     </div>
+    <p>{{ $store.state.user.email }}</p>
   </div>
 </template>
 
@@ -38,7 +45,7 @@ export default {
       console.log('Logout')
       this.$fire.auth.signOut()
         .then(() => {
-          console.log('ログアウトしました')
+          console.log(this.$store.state.user.email)
         }).catch((error) => {
           // An error happened.
           console.log(error)

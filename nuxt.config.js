@@ -76,7 +76,13 @@ export default {
           measurementId: MEASUREMENT_ID
         },
         services: {
-          auth: true
+          auth: {
+            initialize: {
+              onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
+              onAuthStateChangedAction: 'onAuthStateChangedAction',
+              subscribeManually: false
+            }
+          }
           // firestore: true,
           // functions: true,
           // storage: true,
@@ -89,6 +95,13 @@ export default {
       }
     ]
   ],
+
+  // Router
+  router: {
+    middleware: [
+      'auth'
+    ]
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
