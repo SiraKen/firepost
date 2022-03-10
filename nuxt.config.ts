@@ -1,4 +1,4 @@
-require("dotenv").config();
+require('dotenv').config()
 const {
   API_KEY,
   AUTH_DOMAIN,
@@ -6,8 +6,8 @@ const {
   STORAGE_BUCKET,
   MESSAGING_SENDER_ID,
   APP_ID,
-  MEASUREMENT_ID,
-} = process.env;
+  MEASUREMENT_ID
+} = process.env
 
 export default {
   // dotenv
@@ -18,24 +18,24 @@ export default {
     STORAGE_BUCKET,
     MESSAGING_SENDER_ID,
     APP_ID,
-    MEASUREMENT_ID,
+    MEASUREMENT_ID
   },
 
   // Target: https://go.nuxtjs.dev/config-target
-  target: "static",
+  target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "firepost",
+    title: 'firepost',
     htmlAttrs: {
-      lang: "en",
+      lang: 'en'
     },
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '' }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -50,18 +50,18 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    "@nuxtjs/eslint-module",
+    '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
-    "@nuxtjs/tailwindcss",
-    "@nuxt/typescript-build",
+    '@nuxtjs/tailwindcss',
+    '@nuxt/typescript-build'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    "@nuxtjs/axios",
+    '@nuxtjs/axios',
     [
-      "@nuxtjs/firebase",
+      '@nuxtjs/firebase',
       {
         config: {
           apiKey: API_KEY,
@@ -70,16 +70,16 @@ export default {
           storageBucket: STORAGE_BUCKET,
           messagingSenderId: MESSAGING_SENDER_ID,
           appId: APP_ID,
-          measurementId: MEASUREMENT_ID,
+          measurementId: MEASUREMENT_ID
         },
         services: {
           auth: {
             initialize: {
-              onAuthStateChangedMutation: "ON_AUTH_STATE_CHANGED_MUTATION",
-              onAuthStateChangedAction: "onAuthStateChangedAction",
-              subscribeManually: false,
-            },
-          },
+              onAuthStateChangedMutation: 'ON_AUTH_STATE_CHANGED_MUTATION',
+              onAuthStateChangedAction: 'onAuthStateChangedAction',
+              subscribeManually: false
+            }
+          }
           // firestore: true,
           // functions: true,
           // storage: true,
@@ -88,14 +88,14 @@ export default {
           // performance: true,
           // analytics: true,
           // remoteConfig: true
-        },
-      },
-    ],
+        }
+      }
+    ]
   ],
 
   // Router
   router: {
-    middleware: ["auth"],
+    middleware: ['auth']
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -105,5 +105,5 @@ export default {
   build: {},
 
   // Firebase
-  firebase: {},
-};
+  firebase: {}
+}
